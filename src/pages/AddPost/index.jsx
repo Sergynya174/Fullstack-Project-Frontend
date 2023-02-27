@@ -1,4 +1,5 @@
 import { useMemo, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { Button, Paper, TextField } from "@mui/material";
 import SimpleMDE from "react-simplemde-editor";
 
@@ -74,11 +75,11 @@ export const AddPost = () => {
         <Button sx={{ marginRight: "15px" }} size="large" variant="contained">
           Опубликовать
         </Button>
-        <a href="/">
+        <Link to="/">
           <Button sx={{ marginRight: "15px" }} size="large">
             Отмена
           </Button>
-        </a>
+        </Link>
       </div>
     </Paper>
   );
