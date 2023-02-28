@@ -10,7 +10,10 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const onClickLogout = () => {
-    if (window.confirm("Выдействительно хотите выйти?")) dispatch(logout());
+    if (window.confirm("Выдействительно хотите выйти?")) {
+      dispatch(logout());
+      window.localStorage.removeItem("token");
+    }
   };
 
   return (
@@ -23,7 +26,7 @@ const Header = () => {
           <div className={styles.buttons}>
             {isAuth ? (
               <>
-                <Link className={styles.link} to="/posts/create">
+                <Link className={styles.link} to="/add-post">
                   <Button sx={{ marginRight: 1 }} variant="contained">
                     Написать статью
                   </Button>

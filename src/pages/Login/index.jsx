@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { Typography, TextField, Paper, Button } from "@mui/material";
@@ -13,7 +13,6 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
@@ -34,8 +33,6 @@ export const Login = () => {
     }
   };
 
-  useEffect(() => {});
-
   if (isAuth) {
     return <Navigate to="/" />;
   }
@@ -49,6 +46,7 @@ export const Login = () => {
         <TextField
           className={styles.field}
           label="E-Mail"
+          type="email"
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           {...register("email", { required: "Укажите почту" })}
@@ -62,7 +60,13 @@ export const Login = () => {
           {...register("password", { required: "Укажите пароль" })}
           fullWidth
         />
-        <Button type="submit" size="large" variant="contained" fullWidth>
+        <Button
+          disabled={!isValid}
+          type="submit"
+          size="large"
+          variant="contained"
+          fullWidth
+        >
           Войти
         </Button>
       </form>
