@@ -9,7 +9,6 @@ import axios from "../../axios";
 
 import "easymde/dist/easymde.min.css";
 import styles from "./AddPost.module.css";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 
 export const AddPost = () => {
   const navigate = useNavigate();
@@ -128,7 +127,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`http://localhost:8080${imageUrl}`}
+            src={`https://blog-9xb5.onrender.com${imageUrl}`}
             alt="Uploaded"
           />
         </>

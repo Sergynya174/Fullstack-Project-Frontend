@@ -37,7 +37,9 @@ export const Home = () => {
                 key={index}
                 title={obj.title}
                 imageUrl={
-                  obj.imageUrl ? `http://localhost:8080${obj.imageUrl}` : ""
+                  obj.imageUrl
+                    ? `https://blog-9xb5.onrender.com${obj.imageUrl}`
+                    : ""
                 }
                 user={obj.user}
                 createdAt={obj.createdAt}
